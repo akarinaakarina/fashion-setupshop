@@ -4,7 +4,7 @@ class OriginalItemsController < ApplicationController
   before_action :move_to_index, only: [:edit, :update, :destroy]
 
   def index
-    @original_items = OriginalItem.all.order('created_at DESC')
+    @original_items = OriginalItem.includes(:user).order('created_at DESC')
   end
 
   def new

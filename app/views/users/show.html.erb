@@ -1,0 +1,38 @@
+<%= render "shared/header" %>
+
+<div class='shoppage-contents'>
+    <h2 class='shop-name'>
+      <%= @shop_name %>
+    </h2>
+    <%# <p class='service-explain'>
+      誰でもお店のオーナーになれます
+    </p>
+    <p class='service-explain'>
+      そしてお気に入りのお店を見つけましょう
+    </p> %>
+  </div>
+
+<div class='item-contents'>
+  <% @original_items.each do |original_item|%>
+    <li class='list'>
+      <%= link_to original_item_path(original_item.id) do %>
+        <div class='item-img-content'>
+          <%= image_tag original_item.image, class: "item-img" %>
+          <% if original_item.buy.present? %>
+            <div class='sold-out'>
+              <span>Sold Out!!</span>
+            </div>
+          <% end %>
+        </div>
+        <div class='item-info'>
+          <h3 class='item-name'>
+            <%= original_item.name %>
+          </h3>
+            <div class='item-price'>
+              <span><%= original_item.price %>円<br><%= original_item.delivery_style.name %></span>
+            </div>
+        </div>
+      <% end %>
+    </li>
+  <% end %>
+</div>
