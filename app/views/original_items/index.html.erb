@@ -1,0 +1,74 @@
+<%= render "shared/header" %>
+<div class='main'>
+
+  <div class='title-contents'>
+    <h2 class='service-title'>
+      自分のショップを立ち上げよう
+    </h2>
+    <p class='service-explain'>
+      誰でもお店のオーナーになれます
+    </p>
+    <p class='service-explain'>
+      そしてお気に入りのお店を見つけましょう
+    </p>
+  </div>
+
+  <div class='item-contents'>
+    <h2 class='title'>オリジナル商品</h2>
+    <%= link_to '新規投稿商品', new_original_item_path, class: "subtitle" %>
+    <ul class='item-lists'>
+      <% @original_items.each do |original_item|%>
+       <li class='list'>
+          <%= link_to original_item_path(original_item.id) do %>
+          <div class='item-img-content'>
+            <%= image_tag original_item.image, class: "item-img" %>
+
+            <% if original_item.buy.present? %>
+              <div class='sold-out'>
+                <span>Sold Out!!</span>
+              </div>
+            <% end %>
+
+          </div>
+          <div class='item-info'>
+            <h3 class='item-name'>
+              <%= original_item.name %>
+            </h3>
+            <div class='item-price'>
+              <span><%= original_item.price %>円<br><%= original_item.delivery_style.name %></span>
+              <div class='star-btn'>
+                <%= image_tag "star.png", class:"star-icon" %>
+                <span class='star-count'>0</span>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </li>
+      <% end %>
+      <% if @original_items.length == 0%>
+      <li class='list'>
+        <%= link_to '#' do %>
+        <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
+        <div class='item-info'>
+          <h3 class='item-name'>
+            商品を出品してね！
+          </h3>
+          <div class='item-price'>
+            <span>99999999円<br>(税込み)</span>
+            <div class='star-btn'>
+              <%= image_tag "star.png", class:"star-icon" %>
+              <span class='star-count'>0</span>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<%= link_to(new_original_item_path, class: 'purchase-btn') do %>
+  <span class='purchase-btn-text'>出品する</span>
+<% end %>
+<%= render "shared/footer" %>
