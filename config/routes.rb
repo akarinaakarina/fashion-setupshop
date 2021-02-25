@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get 'original_items/index'
+  devise_for :users
+  root to: "original_items#index"
+  resources :original_items do
+    resources :buys, only: [:create, :index]
+  end
 end
