@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :original_items do
     resources :buys, only: [:create, :index]
   end
+  resources :users, only: :show
 end

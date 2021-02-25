@@ -8,7 +8,7 @@ a {
 
 .title-contents {
   width: 100vw;
-  background-image: image-url('IMG_4189.jpeg');
+  background-image: image-url('toppage.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
@@ -23,11 +23,27 @@ a {
 
 .service-title {
   font-size: 8vh;
+  text-shadow: 2px  2px 1px black,
+  -2px  2px 1px black,
+   2px -2px 1px black,
+  -2px -2px 1px black,
+   2px  0px 1px black,
+   0px  2px 1px black,
+  -2px  0px 1px black,
+   0px -2px 1px black; ;
 }
 
 .service-explain {
   font-size: 2.5vh;
   line-height: 40px;
+  text-shadow: 2px  2px 1px black,
+  -2px  2px 1px black,
+   2px -2px 1px black,
+  -2px -2px 1px black,
+   2px  0px 1px black,
+   0px  2px 1px black,
+  -2px  0px 1px black,
+   0px -2px 1px black; ;
 }
 /* 商品一覧 */
 
@@ -107,21 +123,4 @@ a {
   display: flex;
   justify-content: space-between;
 }
-
-
-.star-btn {
-  display: flex;
-  align-items: center;
-}
-
-.star-icon {
-  height: 2vh;
-  width: 2vh;
-  margin-right: 0.5vw;
-}
-
-.star-count {
-  font-size: 2vh;
-}
-
 /* //商品一覧 */

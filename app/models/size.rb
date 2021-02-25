@@ -6,7 +6,8 @@ class Size < ActiveHash::Base
     { id: 5, name: 'M' },
     { id: 6, name: 'L' },
     { id: 7, name: 'XL' },
-    { id: 8, name: 'XXL' }
+    { id: 8, name: 'XXL' },
+    { id: 9, name: '3XL' }
   ]
 
   include ActiveHash::Associations
