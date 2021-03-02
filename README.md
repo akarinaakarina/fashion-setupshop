@@ -25,27 +25,9 @@
 | ------------------ | ----------- | ------------------------------ |
 | name               | string      | null: false                    |
 | description        | text        | null: false                    |
-| category_id        | integer     | null: false                    |
-| size_id            | integer     | null: false                    |
-| delivery_style_id  | integer     | null: false                    |
-| prefecture_id      | integer     | null: false                    |
-| delivery_day_id    | integer     | null: false                    |
-| price              | integer     | null: false                    |
-| user               | references  | null: false  foreign_key: true |
-
-### Association
-
-- has_one :buy
-- belongs_to :user
-
-## select_items テーブル
-
-| Column             | Type        | Options                        |
-| ------------------ | ----------- | ------------------------------ |
-| name               | string      | null: false                    |
-| description        | text        | null: false                    |
-| category_id        | integer     | null: false                    |
 | state_id           | integer     | null: false                    |
+| category1_id       | integer     | null: false                    |
+| category2_id       | integer     | null: false                    |
 | size_id            | integer     | null: false                    |
 | delivery_style_id  | integer     | null: false                    |
 | prefecture_id      | integer     | null: false                    |
