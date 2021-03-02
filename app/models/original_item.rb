@@ -4,6 +4,7 @@ class OriginalItem < ApplicationRecord
   has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :state
   belongs_to :category1
   belongs_to :category2
   belongs_to :size
@@ -22,6 +23,7 @@ class OriginalItem < ApplicationRecord
   validates_inclusion_of :price, in: 300..9_999_999
 
   with_options numericality: { other_than: 1 } do
+    validates :state_id
     validates :category1_id
     validates :category2_id
     validates :size_id

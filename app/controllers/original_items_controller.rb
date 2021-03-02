@@ -46,7 +46,7 @@ class OriginalItemsController < ApplicationController
   end
 
   def original_item_params
-    params.require(:original_item).permit(:image, :name, :description, :category1_id, :category2_id, :size_id, :color_id, :delivery_style_id, :prefecture_id,
+    params.require(:original_item).permit(:image, :name, :description, :state_id, :category1_id, :category2_id, :size_id, :color_id, :delivery_style_id, :prefecture_id,
                                           :delivery_day_id, :price).merge(user_id: current_user.id)
   end
 
