@@ -1,0 +1,151 @@
+@charset "UTF-8";
+a {
+  text-decoration: none;
+}
+
+.main {
+  background: #f8f8f8;
+}
+
+.title-contents {
+  width: 100vw;
+  background-image: image-url("toppage.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 5vh 15vw;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+}
+
+.service-title {
+  font-size: 8vh;
+  text-shadow: 2px  2px 1px black, -2px  2px 1px black, 2px -2px 1px black, -2px -2px 1px black, 2px  0px 1px black, 0px  2px 1px black, -2px  0px 1px black, 0px -2px 1px black;
+}
+
+.service-explain {
+  font-size: 2.5vh;
+  line-height: 40px;
+  text-shadow: 2px  2px 1px black, -2px  2px 1px black, 2px -2px 1px black, -2px -2px 1px black, 2px  0px 1px black, 0px  2px 1px black, -2px  0px 1px black, 0px -2px 1px black;
+}
+
+/* 商品一覧 */
+.item-contents {
+  background-color: #FFF;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10vh 0;
+}
+
+.item-contents > .title {
+  font-size: 5vh;
+  line-height: 1.4;
+  font-weight: bold;
+}
+
+.item-contents > .subtitle {
+  font-size: 3vh;
+  margin: 1vh 0;
+  text-decoration: none;
+  color: #272525;
+  font-weight: bold;
+}
+
+.item-lists {
+  width: 100vw;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.item-lists > .list {
+  width: 37vh;
+  padding: 1vw;
+  background-color: #FFF;
+}
+
+.item-img-content {
+  position: relative;
+}
+
+.item-img {
+  width: 33vh;
+  height: 33vh;
+}
+
+.sold-out {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  text-align: center;
+  background-color: crimson;
+  -webkit-transform: skewY(-10deg);
+          transform: skewY(-10deg);
+}
+
+.sold-out > span {
+  color: #FFF;
+  font-size: 45px;
+  font: bold;
+}
+
+.item-info {
+  background-color: #FFF;
+  color: black;
+  padding: 1vw;
+}
+
+.item-name {
+  font-size: 2.5vh;
+}
+
+.item-price {
+  font-size: 1.5vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+/* //商品一覧 */
+/*# sourceMappingURL=index.css.map */

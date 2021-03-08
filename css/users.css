@@ -1,0 +1,43 @@
+.shoppage-contents {
+  width: 100vw;
+  background-image: image-url("mypage.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 5vh 15vw;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+}
+
+.shop-name {
+  font-size: 8vh;
+  font-family: serif;
+  text-shadow: 2px  2px 1px #003366, -2px  2px 1px #003366, 2px -2px 1px #003366, -2px -2px 1px #003366, 2px  0px 1px #003366, 0px  2px 1px #003366, -2px  0px 1px #003366, 0px -2px 1px #003366;
+}
+
+.service-explain {
+  font-size: 2.5vh;
+  line-height: 40px;
+}
+
+.list {
+  list-style: none;
+}
+/*# sourceMappingURL=users.css.map */
