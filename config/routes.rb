@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   root to: "original_items#index"
   resources :original_items do
     resources :buys, only: [:create, :index]
+    collection do
+      get 'search'
+    end
   end
   resources :users, only: :show
 end
