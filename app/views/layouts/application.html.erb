@@ -3,7 +3,6 @@
 
 <head>
   <title>FashionSetupshop</title>
-  <meta name="viewport" content="width=devise-width,initial-scale=1.0">
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
   <script type="text/javascript" src="https://js.pay.jp/v1/"></script>
@@ -12,6 +11,7 @@
 </head>
 
 <body>
+  <%= breadcrumbs separator: " &rsaquo; " %>
   <%= yield %>
 </body>
 

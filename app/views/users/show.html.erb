@@ -1,8 +1,8 @@
-<%= render "shared/header" %>
+<% breadcrumb :user, @user %>
 
 <div class='shoppage-contents'>
     <h2 class='shop-name'>
-      <%= @shop_name %>
+      <%= @user.shop_name %>
     </h2>
     <%# <p class='service-explain'>
       誰でもお店のオーナーになれます
@@ -14,7 +14,7 @@
 
 <div class='item-contents'>
   <h2 class='title'>オリジナルアイテム</h2>
-  <% @original_items.where(state_id: 2).each do |original_item|%>
+  <% @user.original_items.where(state_id: 2).each do |original_item|%>
     <li class='list'>
       <%= link_to original_item_path(original_item.id) do %>
         <div class='item-img-content'>
@@ -39,7 +39,7 @@
 </div>
 <div class='item-contents'>
   <h2 class='title'>セレクトアイテム（新品）</h2>
-  <% @original_items.where(state_id: 3).each do |original_item|%>
+  <% @user.original_items.where(state_id: 3).each do |original_item|%>
     <li class='list'>
       <%= link_to original_item_path(original_item.id) do %>
         <div class='item-img-content'>
@@ -64,7 +64,7 @@
 </div>
 <div class='item-contents'>
   <h2 class='title'>セレクトアイテム（中古品）</h2>
-  <% @original_items.where(state_id: 4).each do |original_item|%>
+  <% @user.original_items.where(state_id: 4).each do |original_item|%>
     <li class='list'>
       <%= link_to original_item_path(original_item.id) do %>
         <div class='item-img-content'>

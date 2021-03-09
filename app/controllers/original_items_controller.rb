@@ -1,5 +1,5 @@
 class OriginalItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :search]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :move_to_index, only: [:edit, :update, :destroy]
 
@@ -37,6 +37,14 @@ class OriginalItemsController < ApplicationController
   def destroy
     @original_item.destroy
     redirect_to :root
+  end
+
+  def search
+    if params[:keyword].present?
+      @original_items = OriginalItem.where('name LIKE ?', "%#{params[:keyword]}%")
+    else
+      @original_items = OriginalItem.all
+    end
   end
 
   private
