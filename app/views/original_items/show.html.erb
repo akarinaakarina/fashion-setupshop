@@ -76,27 +76,26 @@
       </tbody>
     </table>
   </div>
-
+  
   <div class="comment-box">
-    <form>
-      <textarea class="comment-text"></textarea>
-      <p class="comment-warn">
-        相手のことを考え丁寧なコメントを心がけましょう。
-        <br>
-        不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      </p>
-      <button type="submit" class="comment-btn">
-        <span>コメントする<span>
-      </button>
-    </form>
-  </div>
-  <div class="links">
-    <a href="#" class="change-item-btn">
-      ＜ 前の商品
-    </a>
-    <a href="#" class="change-item-btn">
-      後ろの商品 ＞
-    </a>
-  </div>
+    <% if user_signed_in? %>
+      <%= form_with(model: [@original_item, @comment], local: true) do |f| %>
+        <%= f.text_area :text, placeholder: "コメントする", rows: "2", class:"comment-text" %>
+        <%= f.submit "コメントする", class: "comment-btn"%>
+      <% end %>
+    <% else %>
+      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+    <% end %>
+    <div class="comments-title">
+      <h4>コメントリスト</h4>
+    </div>
+      <% @comments.each do |comment| %>
+        <div class="comment-list">
+          <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %></strong>
+          <div class="comment">
+            <p><%= comment.text %></p>
+          </div>
+        </div>
+      <% end %>
   <a href="#" class="another-item"><%= @original_item.category1.name %>をもっと見る</a>
 </div>
