@@ -7,6 +7,12 @@
   right: 32px;
   position: fixed;
   padding: 15px;
+  box-shadow    : 6px 6px 3px #666666;
+}
+
+.purchase-btn:hover {
+  box-shadow    : none;
+  background    : rgb(73, 73, 73);
 }
 
 .purchase-btn-text {

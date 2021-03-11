@@ -89,14 +89,13 @@ a {
   background-color: #FFF;
 }
 
-
 .item-img-content {
   position: relative;
 }
 
 .item-img {
-  width: 33vh;
-  height: 33vh;
+  width: 37vw;
+  height: 37vh;
 }
 
 .sold-out {
@@ -118,16 +117,15 @@ a {
 .item-info {
   background-color: #FFF;
   color: black;
-  padding: 1vw;
-}
-
-.item-name {
-  font-size: 2.5vh;
 }
 
 .item-price {
-  font-size: 1.5vh;
+  font-size: 1.7vh;
   display: flex;
   justify-content: space-between;
+}
+
+.item-name {
+  font-size: 2.1vh;
 }
 /* //商品一覧 */
