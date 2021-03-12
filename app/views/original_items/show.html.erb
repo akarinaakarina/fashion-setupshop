@@ -24,7 +24,7 @@
 
     <% if user_signed_in? && @original_item.buy.nil? %>
       <% if current_user.id == @original_item.user_id %>
-        <%= link_to "商品の編集", edit_original_item_path, method: :get, class: "item-red-btn" %>
+        <%= link_to "商品の編集", edit_original_item_path, method: :get, class: "item-brack-btn" %>
         <p class="or-text">or</p>
         <%= link_to "削除", original_item_path, method: :delete, class:"item-destroy" %>
       <% else %>
@@ -76,16 +76,32 @@
       </tbody>
     </table>
   </div>
-  
-  <div class="comment-box">
-    <% if user_signed_in? %>
-      <%= form_with(model: [@original_item, @comment], local: true) do |f| %>
-        <%= f.text_area :text, placeholder: "コメントする", rows: "2", class:"comment-text" %>
-        <%= f.submit "コメントする", class: "comment-btn"%>
+
+  <div class="star-contents">
+    <div class="star-entry">
+      <% if current_user.already_liked?(@original_item) %>
+        <%= button_to 'お気に入りを取り消す', original_item_like_path(@original_item), method: :delete, class:"star-btn" %>
+      <% else %>
+        <%= button_to 'お気に入り登録', original_item_likes_path(@original_item), class:"star-btn" %>
       <% end %>
-    <% else %>
-      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
-    <% end %>
+      <div class="star-amount">
+        ★ <%= @original_item.likes.count %>件
+      </div>
+    </div>
+    <div class="star-user-contents">
+      <div class="star-user-title">
+        お気に入りしたユーザー
+      </div>
+      <div class="star-user">
+        <% @original_item.liked_users.each do |user| %>
+        <a href="/users/<%= user.id %>">
+          ・<%= user.nickname %>&nbsp;
+        </a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="comment-box">
     <div class="comments-title">
       <h4>コメントリスト</h4>
     </div>
@@ -97,5 +113,13 @@
           </div>
         </div>
       <% end %>
-  <a href="#" class="another-item"><%= @original_item.category1.name %>をもっと見る</a>
+    <% if user_signed_in? %>
+      <%= form_with(model: [@original_item, @comment], local: true) do |f| %>
+        <%= f.text_area :text, placeholder: "コメントする", rows: "2", class:"comment-text" %>
+        <%= f.submit "コメントする", class: "comment-btn"%>
+      <% end %>
+    <% else %>
+      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+    <% end %>
+  </div>
 </div>

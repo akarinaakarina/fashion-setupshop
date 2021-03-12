@@ -1,0 +1,4 @@
+<h2>いいねしたユーザー</h2>
+<% @original_item.liked_users.each do |user| %>
+  <li><%= user.nickname %></li>
+<% end %>

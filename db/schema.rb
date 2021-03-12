@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_10_025039) do
+ActiveRecord::Schema.define(version: 2021_03_11_031853) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -63,6 +63,15 @@ ActiveRecord::Schema.define(version: 2021_03_10_025039) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "original_item_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["original_item_id"], name: "index_likes_on_original_item_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "original_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "description", null: false
@@ -104,5 +113,7 @@ ActiveRecord::Schema.define(version: 2021_03_10_025039) do
   add_foreign_key "addresses", "buys"
   add_foreign_key "buys", "original_items"
   add_foreign_key "buys", "users"
+  add_foreign_key "likes", "original_items"
+  add_foreign_key "likes", "users"
   add_foreign_key "original_items", "users"
 end
