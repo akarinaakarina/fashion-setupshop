@@ -79,14 +79,16 @@
 
   <div class="star-contents">
     <div class="star-entry">
-      <% if current_user.already_liked?(@original_item) %>
-        <%= button_to 'お気に入りを取り消す', original_item_like_path(@original_item), method: :delete, class:"star-btn" %>
-      <% else %>
-        <%= button_to 'お気に入り登録', original_item_likes_path(@original_item), class:"star-btn" %>
+      <% if user_signed_in? %>
+        <% if current_user.already_liked?(@original_item) %>
+          <%= button_to 'お気に入りを取り消す', original_item_like_path(@original_item), method: :delete, class:"star-btn" %>
+        <% else %>
+          <%= button_to 'お気に入り登録', original_item_likes_path(@original_item), class:"star-btn" %>
+        <% end %>
       <% end %>
-      <div class="star-amount">
-        ★ <%= @original_item.likes.count %>件
-      </div>
+        <div class="star-amount">
+          ★ <%= @original_item.likes.count %>件
+        </div>
     </div>
     <div class="star-user-contents">
       <div class="star-user-title">
