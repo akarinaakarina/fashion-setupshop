@@ -20,7 +20,7 @@
     <%= link_to '新規投稿商品', new_original_item_path, class: "subtitle" %>
     <ul class='item-lists'>
       <% @original_items.where(state_id: 2).each do |original_item|%>
-       <li class='list'>
+        <li class='list'>
           <%= link_to original_item_path(original_item.id) do %>
           <div class='item-img-content'>
             <%= image_tag original_item.image, class: "item-img" %>
@@ -35,8 +35,13 @@
            <h3 class='item-name'>
              <%= original_item.name %>
            </h3>
-             <div class='item-price'>
-               <span><%= original_item.user.shop_name %><br>¥<%= original_item.price %></span>
+             <div class='item-price-star'>
+               <span>¥<%= original_item.price %></span>
+               <div>
+                 <span class='star-count'>
+                   ★<%= original_item.liked_users.count %>
+                 </span>
+                </div>
              </div>
           </div>
           <% end %>
@@ -64,8 +69,13 @@
               <h3 class='item-name'>
               <%= original_item.name %>
               </h3>
-              <div class='item-price'>
-                <span><%= original_item.user.shop_name %><br>¥<%= original_item.price %></span>
+              <div class='item-price-star'>
+                <span>¥<%= original_item.price %></span>
+                <div>
+                 <span class='star-count'>
+                   ★<%= original_item.liked_users.count %>
+                 </span>
+                </div>
               </div>
             </div>
           <% end %>
@@ -93,8 +103,13 @@
               <h3 class='item-name'>
               <%= original_item.name %>
               </h3>
-              <div class='item-price'>
-                <span><%= original_item.user.shop_name %><br>¥<%= original_item.price %></span>
+              <div class='item-price-star'>
+                <span>¥<%= original_item.price %></span>
+                <div>
+                 <span class='star-count'>
+                   ★<%= original_item.liked_users.count %>
+                 </span>
+                </div>
               </div>
             </div>
           <% end %>

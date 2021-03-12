@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :original_items
   has_many :buys
   has_many :comments
+  has_many :likes, dependent: :destroy
+  has_many :liked_original_items, through: :likes, source: :original_item
 
   with_options presence: true do
     validates :nickname
@@ -18,5 +20,9 @@ class User < ApplicationRecord
     validates :last_kana, format: { with: /\A[ァ-ヶー－]+\z/, message: 'には全角（カタカナ）での入力をしてください' }
     validates :first_kana, format: { with: /\A[ァ-ヶー－]+\z/, message: 'には全角（カタカナ）での入力をしてください' }
     validates :birthday
+  end
+
+  def already_liked?(original_item)
+    self.likes.exists?(original_item_id: original_item.id)
   end
 end

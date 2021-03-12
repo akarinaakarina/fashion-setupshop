@@ -2,6 +2,8 @@ class OriginalItem < ApplicationRecord
   has_one :buy
   belongs_to :user
   has_many :comments
+  has_many :likes
+  has_many :liked_users, through: :likes, source: :user
   has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions

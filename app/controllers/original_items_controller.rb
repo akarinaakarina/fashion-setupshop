@@ -23,6 +23,7 @@ class OriginalItemsController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @original_item.comments.includes(:user)
+    @like = Like.new
   end
 
   def edit

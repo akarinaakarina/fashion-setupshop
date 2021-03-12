@@ -208,3 +208,54 @@
   font-weight: bold;
   font-size: 23px;
 }
+
+.star-contents{
+  background-color: white;
+  width: 80%;
+  padding: 20px;
+}
+
+.star-entry{
+  display: flex;
+  justify-content: space-around;
+}
+
+.star-user-title{
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 5px;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.star-user{
+display: flex;
+justify-content: flex-start;
+font-size: small;
+}
+
+.star-amount{
+  display: flex;
+  align-items: center;
+  font-size: x-large;
+}
+
+.star-btn {
+  line-height: 48px;
+  background-color: black;
+  border: 1px solid black;
+  color: #fff;
+  width: 30vw;
+  min-width: 150px;
+  font-size: 18px;
+  border-radius: 100px;
+  margin-bottom: 2vh;
+  cursor        : pointer;
+  box-shadow    : 6px 6px 3px #666666;
+  display: flex;
+  justify-content: center;
+}
+.star-btn:hover {
+  box-shadow    : none;
+  background    : rgb(73, 73, 73);
+}

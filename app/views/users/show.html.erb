@@ -1,3 +1,4 @@
+
 <% breadcrumb :user, @user %>
 
 <div class='shoppage-contents'>
@@ -10,10 +11,12 @@
     <p class='service-explain'>
       そしてお気に入りのお店を見つけましょう
     </p> %>
-  </div>
+</div>
 
+<% if @user.original_items.where(state_id: 2).present? %>
 <div class='item-contents'>
   <h2 class='title'>オリジナルアイテム</h2>
+  <ul class='item-lists'>
   <% @user.original_items.where(state_id: 2).each do |original_item|%>
     <li class='list'>
       <%= link_to original_item_path(original_item.id) do %>
@@ -29,16 +32,25 @@
           <h3 class='item-name'>
             <%= original_item.name %>
           </h3>
-            <div class='item-price'>
-              <span><%= original_item.price %>円<br><%= original_item.delivery_style.name %></span>
-            </div>
+            <div class='item-price-star'>
+               <span>¥<%= original_item.price %></span>
+               <div>
+                 <span class='star-count'>
+                   ★<%= original_item.liked_users.count %>
+                 </span>
+                </div>
+             </div>
         </div>
       <% end %>
     </li>
   <% end %>
+  </ul>
 </div>
+<% end %>
+<% if @user.original_items.where(state_id: 3).present? %>
 <div class='item-contents'>
   <h2 class='title'>セレクトアイテム（新品）</h2>
+  <ul class='item-lists'>
   <% @user.original_items.where(state_id: 3).each do |original_item|%>
     <li class='list'>
       <%= link_to original_item_path(original_item.id) do %>
@@ -54,16 +66,25 @@
           <h3 class='item-name'>
             <%= original_item.name %>
           </h3>
-            <div class='item-price'>
-              <span><%= original_item.price %>円<br><%= original_item.delivery_style.name %></span>
-            </div>
+            <div class='item-price-star'>
+               <span>¥<%= original_item.price %></span>
+               <div>
+                 <span class='star-count'>
+                   ★<%= original_item.liked_users.count %>
+                 </span>
+                </div>
+             </div>
         </div>
       <% end %>
     </li>
   <% end %>
+  </ul>
 </div>
+<% end %>
+<% if @user.original_items.where(state_id: 4).present? %>
 <div class='item-contents'>
   <h2 class='title'>セレクトアイテム（中古品）</h2>
+  <ul class='item-lists'>
   <% @user.original_items.where(state_id: 4).each do |original_item|%>
     <li class='list'>
       <%= link_to original_item_path(original_item.id) do %>
@@ -79,11 +100,51 @@
           <h3 class='item-name'>
             <%= original_item.name %>
           </h3>
-            <div class='item-price'>
-              <span><%= original_item.price %>円<br><%= original_item.delivery_style.name %></span>
-            </div>
+            <div class='item-price-star'>
+               <span>¥<%= original_item.price %></span>
+               <div>
+                 <span class='star-count'>
+                   ★<%= original_item.liked_users.count %>
+                 </span>
+                </div>
+             </div>
         </div>
       <% end %>
     </li>
   <% end %>
+  </ul>
 </div>
+<% end %>
+<% if current_user.id == @user.id %>
+  <div class='item-contents'>
+    <h2 class='title'>お気に入り商品</h2>
+    <ul class='item-lists'>
+      <% @user.liked_original_items.each do |original_item| %>
+        <li class='list'>
+          <%= link_to original_item_path(original_item.id) do %>
+            <div class='item-img-content'>
+              <%= image_tag original_item.image, class: "item-img" %>
+              <% if original_item.buy.present? %>
+                <div class='sold-out'>
+                  <span>Sold Out!!</span>
+                </div>
+              <% end %>
+            </div>
+            <div class='item-info'>
+              <h3 class='item-name'>
+                <%= original_item.name %>
+              </h3>
+              <div class='item-price-star'>
+                <span>¥<%= original_item.price %></span>
+                <div>
+                  <span class='star-count'>
+                    ★<%= original_item.liked_users.count %>
+                  </span>
+                </div>
+             </div>
+         <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>  
