@@ -12,12 +12,16 @@
 | last_kana            | string | null: false               |
 | first_kana           | string | null: false               |
 | birthday             | date   | null: false               |
+| shop_name            | string |                           |
+| description          | text   |                           |
 
 ### Association
 
 - has_many :original_items
-- has_many :select_items
 - has_many :buys
+- has_many :comments
+- has_many :likes, dependent: :destroy
+- has_many :liked_original_items, through: :likes, source: :original_item
 
 ## original_items テーブル
 
@@ -53,7 +57,6 @@
 - has_one :address
 - belongs_to :user
 - belongs_to :original_item
-- belongs_to :select_item
 
 ## address テーブル
 
@@ -70,3 +73,28 @@
 ### Association
 
 - belongs_to :buy
+
+## comments テーブル
+
+| Column           | Type       | Options                       |
+| ---------------- | ---------- | ----------------------------- |
+| user_id          | integer    | null: false                   |
+| original_item_id | integer    | null: false                   |
+| text             | text       | null: false                   |
+
+### Association
+
+- belongs_to :original_item
+- belongs_to :user
+
+## likes テーブル
+
+| Column           | Type       | Options                       |
+| ---------------- | ---------- | ----------------------------- |
+| user_id          | references | null: false  foreign_key: true|
+| original_item_id | references | null: false  foreign_key: true|
+
+### Association
+
+- belongs_to :original_item
+- belongs_to :user
