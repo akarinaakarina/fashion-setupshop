@@ -1,0 +1,56 @@
+<%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
+<div class='form-wrap'>
+  <div class='form-header'>
+    <h1 class='form-header-text'>
+      会員情報入力
+    </h1>
+  </div>
+  <%= render 'shared/error_messages', model: f.object %>
+
+  <div class="form-group">
+    <div class="weight-bold-text">
+      プロフィール画像
+      <span class="indispensable">必須</span>
+    </div>
+    <div class="click-upload">
+      <%= f.file_field :image, id:"user-image" %>
+      <div id="image-list">
+        <%= image_tag @user.image, class:'img' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">ニックネーム</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_area :nickname, class:"input-default", id:"nickname", placeholder:"例) fashion太郎", maxlength:"40" %>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">ショップネーム</label>
+      <span class="indispensable">お店を出店する方のみ</span>
+    </div>
+    <%= f.text_area :shop_name, class:"input-default", id:"shop_name", placeholder:"例) fashion太郎のお店", maxlength:"40" %>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">お店のコンセプト</label>
+      <span class="indispensable">お店を出店する方のみ</span>
+    </div>
+    <%= f.text_area :description, class:"items-text", id:"description", placeholder:"お店の説明（1,000文字まで）（素材、サイズ感、こだわり、コンセプト、注意点など）" ,rows:"7" ,maxlength:"1000" %>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">メールアドレス</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.email_field :email, class:"input-default", id:"email", placeholder:"PC・携帯どちらでも可", autofocus: true %>
+  </div>
+  <div class='user-edit-btn'>
+    <%= f.submit "プロフィール変更" ,class:"register-brack-btn" %>
+    <%=link_to 'もどる', root_path, class:"back-btn" %>
+  </div>
+</div>
+<% end %>

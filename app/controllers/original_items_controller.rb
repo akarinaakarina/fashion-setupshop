@@ -43,11 +43,11 @@ class OriginalItemsController < ApplicationController
   end
 
   def search
-    if params[:keyword].present?
-      @original_items = OriginalItem.where('name LIKE ?', "%#{params[:keyword]}%")
-    else
-      @original_items = OriginalItem.all
-    end
+    @original_items = if params[:keyword].present?
+                        OriginalItem.where('name LIKE ?', "%#{params[:keyword]}%")
+                      else
+                        OriginalItem.all
+                      end
   end
 
   private

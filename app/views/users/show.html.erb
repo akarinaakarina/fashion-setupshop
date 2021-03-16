@@ -12,6 +12,25 @@
       そしてお気に入りのお店を見つけましょう
     </p> %>
 </div>
+<div class="profile-contents">
+  <div class="profile-title-content">
+    <h2 class='profile-title'>プロフィール</h2>
+  </div>
+  <div class="profile-content">
+    <div class='user-lists'>
+      <%= image_tag @user.image, class: "user-edit-img" %>
+      <div class="user-edit-name"><%= @user.nickname%></div>
+    </div>
+    <div class="user-description">
+      <%= @user.description %>
+    </div>
+  </div>
+  <% if user_signed_in? && current_user.id == @user.id %>
+    <div class="user-edit">
+      <%= link_to "プロフィール編集", edit_user_path, method: :get, class: "user-brack-btn" %>
+    </div>
+  <% end %>
+</div>
 
 <% if @user.original_items.where(state_id: 2).present? %>
 <div class='item-contents'>
@@ -115,6 +134,7 @@
   </ul>
 </div>
 <% end %>
+<% if @user.liked_original_items.present? %>
 <% if current_user.id == @user.id %>
   <div class='item-contents'>
     <h2 class='title'>お気に入り商品</h2>
@@ -148,3 +168,4 @@
     </ul>
   </div>
 <% end %>  
+<% end %>

@@ -8,9 +8,22 @@ a {
 
 .title{
   width: 100vw;
-  background-color: rgb(194, 192, 192);
-  color: black;
-  text-align: center;
+  position: relative;
+  padding: 0 5px 0 42px;
+  background: rgb(45, 45, 45);
+  color: white;
+  margin-left: -33px;
+  line-height: 1.3;
+}
+
+.title::before{
+  position: absolute;
+  content: '';
+  left: -2px;
+  top: -2px;
+  border: none;
+  border-left: solid 40px white;
+  border-bottom: solid 79px transparent;
 }
 
 .title-contents {
