@@ -165,27 +165,40 @@
   text-align: left;
 }
 
+.comment-user{
+  display: flex;
+  align-items: center;
+}
+
+.user-img{ 
+  width: 3vw;
+}
+
+.user-name{
+  
+}
+
 .comment {
   position: relative;
   display: inline-block;
-  margin: 5px 0 5px 7px;
+  margin: 0 0 3px 3vw;
   padding: 7px 10px;
   min-width: 120px;
   max-width: 100%;
   color: #555;
   font-size: 16px;
   background: #e0edff;
-  border-radius: 5px;
+  border-radius: 8px;
 }
 
 .comment:before {
   content: "";
   position: absolute;
-  top: 50%;
-  left: -25px;
-  margin-top: -15px;
+  top: -25px;
+  left: 20px;
+  margin-left: -15px;
   border: 15px solid transparent;
-  border-right: 15px solid #e0edff;
+  border-bottom: 15px solid #e0edff;
 }
 
 .comment p {

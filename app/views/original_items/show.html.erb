@@ -108,12 +108,13 @@
       <h4>コメントリスト</h4>
     </div>
       <% @comments.each do |comment| %>
-        <div class="comment-list">
-          <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %></strong>
-          <div class="comment">
-            <p><%= comment.text %></p>
-          </div>
-        </div>
+        <ul class="comment-list">
+          <li class="comment-user">
+            <%= image_tag comment.user.image, class: "user-img" %>
+            <%= link_to comment.user.nickname, "/users/#{comment.user_id}", class:"user-name" %>
+          </li>
+          <li class="comment"><%= comment.text %></li>
+        </ul>
       <% end %>
     <% if user_signed_in? %>
       <%= form_with(model: [@original_item, @comment], local: true) do |f| %>

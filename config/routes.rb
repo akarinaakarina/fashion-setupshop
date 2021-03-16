@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'original_items/index'
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: "users/registrations",
+  }
   root to: "original_items#index"
   resources :original_items do
     resources :buys, only: [:create, :index]
@@ -10,5 +12,5 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
-  resources :users, only: :show
+  resources :users, only: [:show, :edit, :update]
 end

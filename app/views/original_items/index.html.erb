@@ -17,7 +17,6 @@
 
   <div class='item-contents'>
     <h2 class='title'>オリジナルアイテム</h2>
-    <%= link_to '新規投稿商品', new_original_item_path, class: "subtitle" %>
     <ul class='item-lists'>
       <% @original_items.where(state_id: 2).each do |original_item|%>
         <li class='list'>
@@ -51,7 +50,6 @@
   </div>
   <div class='item-contents'>
     <h2 class='title'>セレクトアイテム（新品）</h2>
-    <%= link_to '新規投稿商品', new_original_item_path, class: "subtitle" %>
     <ul class='item-lists'>
       <% @original_items.where(state_id: 3).each do |original_item|%>
        <li class='list'>
@@ -85,7 +83,6 @@
   </div>
   <div class='item-contents'>
     <h2 class='title'>セレクトアイテム（中古品）</h2>
-    <%= link_to '新規投稿商品', new_original_item_path, class: "subtitle" %>
     <ul class='item-lists'>
       <% @original_items.where(state_id: 4).each do |original_item|%>
        <li class='list'>

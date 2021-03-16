@@ -8,6 +8,17 @@
   <%= render 'shared/error_messages', model: f.object %>
 
   <div class="form-group">
+    <div class="weight-bold-text">
+      プロフィール画像
+      <span class="indispensable">必須</span>
+    </div>
+    <div class="click-upload">
+      <%= f.file_field :image, id:"user-image" %>
+      <div id="image-list"></div>
+    </div>
+  </div>
+
+  <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">ニックネーム</label>
       <span class="indispensable">必須</span>
@@ -20,6 +31,13 @@
       <span class="indispensable">お店を出店する方のみ</span>
     </div>
     <%= f.text_area :shop_name, class:"input-default", id:"shop_name", placeholder:"例) fashion太郎のお店", maxlength:"40" %>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">お店のコンセプト</label>
+      <span class="indispensable">お店を出店する方のみ</span>
+    </div>
+    <%= f.text_area :description, class:"items-text", id:"description", placeholder:"お店の説明（1,000文字まで）（素材、サイズ感、こだわり、コンセプト、注意点など）" ,rows:"7" ,maxlength:"1000" %>
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>
@@ -99,7 +117,7 @@
     </h2>
   </div>
   <div class='register-btn'>
-    <%= f.submit "会員登録" ,class:"register-red-btn" %>
+    <%= f.submit "会員登録" ,class:"register-brack-btn" %>
   </div>
   <p class='register-info'>本人情報の登録について</p>
 </div>

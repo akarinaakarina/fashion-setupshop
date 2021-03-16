@@ -1,0 +1,72 @@
+.user-edit{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.user-brack-btn {
+  width: 30vw;
+  text-align: center;
+  background-color: black;
+  font-size: 24px;
+  font-weight: bold;
+  color: #FFF;
+  margin-top: 20px;
+  padding: 1vh 1vw;
+  box-shadow    : 6px 6px 3px #666666;
+}
+
+.user-brack-btn:hover {
+  box-shadow    : none;
+  background    : rgb(73, 73, 73);
+}
+
+.user-list{
+  font-size: x-large;
+}
+
+.user-lists{
+  width: 20vw;
+}
+
+.user-edit-img{
+  width: 20vw;
+  height: 20vh;
+}
+
+.user-edit-name{
+  display: flex;
+  justify-content: center;
+}
+
+.profile-contents{
+}
+
+.user-edit-name{
+  margin-top: 10px;
+}
+
+.profile-title-content{
+  display: flex;
+  justify-content: center;
+}
+
+.profile-title{
+  width: 80vw;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  color: black;
+  padding: 0.5em 0;
+  border-top: solid 1px black;
+  border-bottom: solid 1px black;
+}
+
+.profile-content{
+  display: flex;
+}
+
+.user-description{
+  width: 80vw;
+}
