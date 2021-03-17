@@ -22,7 +22,7 @@
       <div class="user-edit-name"><%= @user.nickname%></div>
     </div>
     <div class="user-description">
-      <%= @user.description %>
+      <%= safe_join(@user.description.split("\n"),tag(:br)) %>
     </div>
   </div>
   <% if user_signed_in? && current_user.id == @user.id %>
