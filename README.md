@@ -33,6 +33,7 @@
 | category1_id       | integer     | null: false                    |
 | category2_id       | integer     | null: false                    |
 | size_id            | integer     | null: false                    |
+| color_id           | integer     | null: false                    |
 | delivery_style_id  | integer     | null: false                    |
 | prefecture_id      | integer     | null: false                    |
 | delivery_day_id    | integer     | null: false                    |
@@ -50,7 +51,6 @@
 | ------------- | ---------- | ------------------------------ |
 | user          | references | null: false  foreign_key: true |
 | original_item | references | null: false  foreign_key: true |
-| select_item   | references | null: false  foreign_key: true |
 
 ### Association
 
