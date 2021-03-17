@@ -19,13 +19,13 @@ class OriginalItem < ApplicationRecord
   with_options presence: true do
     validates :name
     validates :description
-    validates :image
+    validates :image, presence: { message: 'を選択してください' }
     validates :price, numericality: { with: /\A[0-9]+\z/, message: 'には半角数字での入力をしてください' }
   end
 
-  validates_inclusion_of :price, in: 300..9_999_999
+  validates_inclusion_of :price, in: 300..9_999_999, message: 'の制限内で設定してください'
 
-  with_options numericality: { other_than: 1 } do
+  with_options numericality: { other_than: 1, message: 'を選択してください' } do
     validates :state_id
     validates :category1_id
     validates :category2_id

@@ -22,7 +22,7 @@ class User < ApplicationRecord
     validates :last_kana, format: { with: /\A[ァ-ヶー－]+\z/, message: 'には全角（カタカナ）での入力をしてください' }
     validates :first_kana, format: { with: /\A[ァ-ヶー－]+\z/, message: 'には全角（カタカナ）での入力をしてください' }
     validates :birthday
-    validates :image
+    validates :image, presence: { message: 'を選択してください' }
   end
 
   def already_liked?(original_item)
