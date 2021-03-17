@@ -33,7 +33,7 @@
     <% end%>
 
     <div class="item-explain-box">
-      <span><%= @original_item.description %></span>
+      <span><%= safe_join(@original_item.description.split("\n"),tag(:br)) %></span>
     </div>
     <table class="detail-table">
       <tbody>
