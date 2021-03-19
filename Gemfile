@@ -68,3 +68,7 @@ gem 'pry-rails'
 gem 'factory_bot_rails'
 gem 'faker'
 gem 'gimei'
+gem "aws-sdk-s3", require: false
+group :production do
+  gem 'unicorn', '5.4.1'
+end
