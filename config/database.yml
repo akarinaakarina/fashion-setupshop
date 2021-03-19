@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: fashion_setupshop_production
-  username: fashion_setupshop
-  password: <%= ENV['FASHION_SETUPSHOP_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
