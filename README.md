@@ -1,3 +1,5 @@
+![トップ画面](https://github.com/akarinaakarina/fashion-setupshop/blob/main/17F5CCBD-37A3-4704-B412-93375733081A.png)
+
 # テーブル設計
 
 ## users テーブル
