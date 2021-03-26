@@ -113,7 +113,7 @@
             <%= image_tag comment.user.image, class: "user-img" %>
             <%= link_to comment.user.nickname, "/users/#{comment.user_id}", class:"user-name" %>
           </li>
-          <li class="comment"><%= comment.text %></li>
+          <li class="comment"><%= safe_join(comment.text.split("\n"),tag(:br)) %></li>
         </ul>
       <% end %>
     <% if user_signed_in? %>
